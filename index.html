@@ -531,51 +531,6 @@
     }
     .tl-item p { margin: 0; font-size: 0.9rem; }
 
-    /* SHARE BAR */
-    .share-bar {
-      text-align: center;
-      padding: 60px 2rem;
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-    }
-    .share-bar p {
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      letter-spacing: 2px;
-      color: var(--muted);
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-    .share-btns {
-      display: flex;
-      gap: 0.6rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .share-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.55rem 1.2rem;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-decoration: none;
-      border: 1.5px solid var(--border);
-      color: var(--text);
-      background: var(--card);
-      cursor: pointer;
-      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-      font-family: var(--sans);
-    }
-    .share-btn:hover {
-      border-color: var(--green);
-      box-shadow: 0 4px 16px var(--green-glow);
-      transform: translateY(-2px);
-    }
-    .share-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
-    .share-btn.copied { border-color: var(--green); color: var(--green); }
-
     /* FOOTER */
     footer {
       background: var(--text);
@@ -1053,25 +1008,6 @@
   </section>
 
 
-  <!-- SHARE BAR -->
-  <div class="share-bar">
-    <p>// share this platform</p>
-    <div class="share-btns">
-      <a class="share-btn" id="share-fb" href="#" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        Facebook
-      </a>
-      <a class="share-btn" id="share-x" href="#" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        Post on X
-      </a>
-      <button class="share-btn" id="share-copy">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-        Copy Link
-      </button>
-    </div>
-  </div>
-
   <!-- FOOTER -->
   <footer>
     <div class="footer-name"><span>Jesua</span> Alfaro</div>
@@ -1128,23 +1064,6 @@
       });
     }, { threshold: 0.4 });
     sections.forEach(s => observer2.observe(s));
-
-    // SHARE BUTTONS
-    const pageUrl = encodeURIComponent(window.location.href);
-    const pageTitle = encodeURIComponent('Jesua Alfaro · CURSOR 2026 — PULL. PUSH. COMMIT.');
-    document.getElementById('share-fb').href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
-    document.getElementById('share-x').href  = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
-    document.getElementById('share-copy').addEventListener('click', () => {
-      navigator.clipboard.writeText(window.location.href).then(() => {
-        const btn = document.getElementById('share-copy');
-        btn.classList.add('copied');
-        btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Copied!`;
-        setTimeout(() => {
-          btn.classList.remove('copied');
-          btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Link`;
-        }, 2000);
-      });
-    });
 
     // TAB SWITCHER
     document.querySelectorAll('.tab-btn').forEach(btn => {
