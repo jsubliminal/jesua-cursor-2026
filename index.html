@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jesua for CURSOR President</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Shareable meta -->
+  <meta property="og:title" content="Jesua Alfaro · CURSOR 2026" />
+  <meta property="og:description" content="PULL. PUSH. COMMIT. A people-first platform for a stronger CURSOR — built on connection, potential, and real accountability." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Jesua Alfaro · CURSOR 2026" />
+  <meta name="twitter:description" content="PULL. PUSH. COMMIT. A people-first platform for a stronger CURSOR." />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --green:      #009e42;
+      --green-dark: #007a30;
+      --green-lt:   #e6f7ed;
+      --green-glow: rgba(0,158,66,0.12);
+      --bg:         #ffffff;
+      --bg2:        #f7faf8;
+      --card:       #ffffff;
+      --text:       #111a11;
+      --muted:      #4a7a4a;
+      --border:     rgba(0,158,66,0.18);
+      --mono:       'JetBrains Mono', monospace;
+      --sans:       'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* SCROLLBAR */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 99px; }
+
+    /* PROGRESS BAR */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--green-dark), var(--green));
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      height: 60px;
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+    .nav-logo {
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--green);
+      letter-spacing: 0.5px;
+    }
+    .nav-logo span { color: var(--muted); font-weight: 400; }
+    nav ul { list-style: none; display: flex; gap: 0.25rem; }
+    nav ul a {
+      display: block;
+      color: var(--muted);
+      text-decoration: none;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav ul a:hover,
+    nav ul a.active { background: var(--green-lt); color: var(--green-dark); }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 48px 48px;
+      animation: grid-drift 20s linear infinite;
+    }
+    @keyframes grid-drift {
+      from { background-position: 0 0; }
+      to   { background-position: 48px 48px; }
+    }
+    .hero-radial {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, transparent 0%, var(--bg) 80%);
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--green);
+      border: 1px solid var(--border);
+      background: var(--green-glow);
+      padding: 5px 14px;
+      border-radius: 99px;
+      margin-bottom: 1.6rem;
+      letter-spacing: 0.5px;
+      animation: fade-down 0.6s ease both;
+    }
+    .hero-badge::before {
+      content: '';
+      display: inline-block;
+      width: 7px; height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 1.8s ease infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity:1; transform: scale(1); }
+      50%      { opacity:0.4; transform: scale(0.7); }
+    }
+    #hero h1 {
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -2px;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      animation: fade-up 0.7s 0.15s ease both;
+    }
+    .name-green { color: var(--green); }
+    .hero-sub {
+      font-family: var(--mono);
+      font-size: clamp(0.9rem, 2vw, 1.05rem);
+      color: var(--muted);
+      margin-bottom: 2.4rem;
+      min-height: 1.6em;
+      animation: fade-up 0.7s 0.3s ease both;
+    }
+    .cursor-blink {
+      display: inline-block;
+      width: 2px; height: 1em;
+      background: var(--green);
+      vertical-align: text-bottom;
+      margin-left: 2px;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+    .hero-btns {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fade-up 0.7s 0.45s ease both;
+    }
+    .btn-primary {
+      background: var(--green);
+      color: #fff;
+      padding: 0.75rem 1.75rem;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 0.92rem;
+      letter-spacing: 0.2px;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,158,66,0.3);
+    }
+    .btn-ghost {
+      border: 1.5px solid var(--border);
+      color: var(--green-dark);
+      padding: 0.75rem 1.75rem;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .btn-ghost:hover {
+      background: var(--green-lt);
+      border-color: var(--green);
+      transform: translateY(-2px);
+    }
+    .scroll-hint {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-family: var(--mono);
+      letter-spacing: 1px;
+      opacity: 0.6;
+      animation: fade-up 1s 1s ease both;
+    }
+    .scroll-hint::after {
+      content: '';
+      width: 1px;
+      height: 36px;
+      background: linear-gradient(var(--green), transparent);
+      animation: scroll-line 1.5s ease-in-out infinite;
+    }
+    @keyframes scroll-line {
+      0%   { transform: scaleY(0); transform-origin: top; }
+      50%  { transform: scaleY(1); transform-origin: top; }
+      51%  { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* SECTION COMMONS */
+    section { padding: 100px 2rem; }
+    section:nth-child(even) { background: var(--bg2); }
+    .container { max-width: 960px; margin: 0 auto; }
+
+    .sec-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.73rem;
+      letter-spacing: 3px;
+      color: var(--green);
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .sec-eyebrow::before { content: '// '; opacity: 0.5; }
+    h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      line-height: 1.15;
+    }
+    .divider {
+      width: 36px; height: 3px;
+      background: var(--green);
+      border-radius: 99px;
+      margin-bottom: 2rem;
+    }
+    p { line-height: 1.85; color: var(--muted); margin-bottom: 1rem; font-size: 0.97rem; }
+    p strong { color: var(--text); }
+
+    /* SCROLL REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-32px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal-left.visible { opacity: 1; transform: none; }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(32px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal-right.visible { opacity: 1; transform: none; }
+
+    /* VISION */
+    .vision-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      margin-top: 1rem;
+    }
+    @media (max-width: 680px) { .vision-layout { grid-template-columns: 1fr; } }
+    .vision-quote-wrap {
+      position: relative;
+      padding: 2rem 1.8rem;
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      background: var(--card);
+      box-shadow: 0 4px 32px var(--green-glow);
+    }
+    .vision-quote-wrap::before {
+      content: '"';
+      font-family: Georgia, serif;
+      font-size: 5rem;
+      color: var(--green);
+      opacity: 0.15;
+      position: absolute;
+      top: -1rem;
+      left: 1rem;
+      line-height: 1;
+    }
+    .vision-quote-wrap blockquote {
+      font-size: 1.08rem;
+      line-height: 1.8;
+      color: var(--green-dark);
+      font-style: italic;
+      font-weight: 500;
+      position: relative;
+    }
+    .vision-text p:last-child { margin-bottom: 0; }
+
+    /* GSPOA — TABS */
+    .gspoa-intro { margin-bottom: 2rem; }
+    .tab-switcher {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      background: var(--green-lt);
+      border-radius: 12px;
+      padding: 5px;
+      width: fit-content;
+    }
+    .tab-btn {
+      font-family: var(--mono);
+      font-size: 0.92rem;
+      font-weight: 700;
+      padding: 0.55rem 1.4rem;
+      border-radius: 8px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      letter-spacing: 1px;
+    }
+    .tab-btn:hover { color: var(--green-dark); }
+    .tab-btn.active {
+      background: var(--green);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(0,158,66,0.3);
+    }
+    .tab-desc {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 1.8rem;
+      padding: 0.6rem 1rem;
+      border-left: 3px solid var(--green);
+      background: var(--green-lt);
+      border-radius: 0 8px 8px 0;
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; animation: tab-in 0.35s ease both; }
+    @keyframes tab-in { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform:none; } }
+
+    /* GSPOA ROWS */
+    .push-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .push-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 0;
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--card);
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    }
+    .push-item:hover {
+      border-color: var(--green);
+      box-shadow: 0 8px 32px var(--green-glow);
+      transform: translateY(-3px);
+    }
+    .push-letter {
+      background: var(--green-lt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--green);
+      border-right: 1.5px solid var(--border);
+      flex-shrink: 0;
+      transition: background 0.25s, color 0.25s;
+    }
+    .push-item:hover .push-letter { background: var(--green); color: #fff; }
+    .push-body { padding: 1.3rem 1.6rem; }
+    .push-body h3 {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+    .push-goal {
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      color: var(--green);
+      margin-bottom: 0.85rem;
+      letter-spacing: 0.3px;
+    }
+    .push-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 580px) { .push-cols { grid-template-columns: 1fr; } }
+    .push-col-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+    .push-col ul {
+      list-style: none;
+      padding: 0;
+      font-size: 0.87rem;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+    .push-col ul li::before { content: '→ '; color: var(--green); }
+
+    /* HONEST CALLOUT */
+    .honest-callout {
+      background: #fffbeb;
+      border: 1.5px solid #f0c040;
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-size: 0.85rem;
+      color: #7a5c00;
+      line-height: 1.7;
+      margin-bottom: 0.9rem;
+    }
+    .honest-label {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #b08000;
+      margin-bottom: 0.3rem;
+      font-weight: 700;
+    }
+    .honest-callout strong { color: #5a3e00; }
+
+    /* QUALIFICATIONS TIMELINE */
+    .timeline {
+      margin-top: 2rem;
+      position: relative;
+      padding-left: 2rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: linear-gradient(var(--green), var(--green-lt));
+      border-radius: 99px;
+    }
+    .tl-item {
+      position: relative;
+      margin-bottom: 2rem;
+      padding-left: 1.4rem;
+    }
+    .tl-item:last-child { margin-bottom: 0; }
+    .tl-dot {
+      position: absolute;
+      left: -1.95rem;
+      top: 4px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2.5px solid var(--green);
+      transition: background 0.2s;
+    }
+    .tl-item:hover .tl-dot { background: var(--green); }
+    .tl-meta {
+      font-family: var(--mono);
+      font-size: 0.73rem;
+      color: var(--green);
+      letter-spacing: 0.5px;
+      margin-bottom: 0.25rem;
+    }
+    .tl-item h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+    .tl-item p { margin: 0; font-size: 0.9rem; }
+
+    /* SHARE BAR */
+    .share-bar {
+      text-align: center;
+      padding: 60px 2rem;
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+    }
+    .share-bar p {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .share-btns {
+      display: flex;
+      gap: 0.6rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.55rem 1.2rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      background: var(--card);
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      font-family: var(--sans);
+    }
+    .share-btn:hover {
+      border-color: var(--green);
+      box-shadow: 0 4px 16px var(--green-glow);
+      transform: translateY(-2px);
+    }
+    .share-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .share-btn.copied { border-color: var(--green); color: var(--green); }
+
+    /* FOOTER */
+    footer {
+      background: var(--text);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .footer-name {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.3rem;
+    }
+    .footer-name span { color: var(--green); }
+    .footer-sub {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 1.5rem;
+    }
+    .footer-cmd {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--green);
+      padding: 6px 16px;
+      border-radius: 6px;
+      margin-bottom: 1.5rem;
+    }
+    .footer-cmd span { color: rgba(255,255,255,0.4); }
+    .footer-copy {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.25);
+    }
+
+    /* KEYFRAMES */
+    @keyframes fade-up   { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform:none; } }
+    @keyframes fade-down { from { opacity:0; transform: translateY(-12px); } to { opacity:1; transform:none; } }
+  </style>
+</head>
+<body>
+
+  <div id="progress-bar"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-logo">~/<span>jesua</span></div>
+    <ul>
+      <li><a href="#vision">vision</a></li>
+      <li><a href="#gspoa">gspoa</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-radial"></div>
+    <div class="hero-inner">
+      <div class="hero-badge">CURSOR · 2026</div>
+      <h1><span class="name-green">Jesua</span><br>Alfaro</h1>
+      <p class="hero-sub" id="typewriter"><span class="cursor-blink"></span></p>
+      <div class="hero-btns">
+        <a href="#gspoa" class="btn-primary">View Platform</a>
+        <a href="#vision" class="btn-ghost">My Vision</a>
+      </div>
+    </div>
+    <div class="scroll-hint">scroll</div>
+  </section>
+
+  <!-- VISION -->
+  <section id="vision">
+    <div class="container">
+      <div class="sec-eyebrow reveal">vision</div>
+      <h2 class="reveal" style="transition-delay:0.05s">where i want to take us</h2>
+      <div class="divider reveal" style="transition-delay:0.1s"></div>
+
+      <div class="vision-layout">
+        <div class="vision-quote-wrap reveal-left" style="transition-delay:0.15s">
+          <blockquote>
+            To rebuild CURSOR as a community where every CS major feels seen, supported, and proud to belong — not just as a member, but as a contributor to something that matters.
+          </blockquote>
+        </div>
+        <div class="vision-text reveal-right" style="transition-delay:0.2s">
+          <p>
+            CURSOR has the talent, the history, and the heart — but we've been drifting. Member renewals are down. Participation has slipped. And too many of our fellow CS majors feel like the org isn't for them anymore. <strong>That changes this term.</strong>
+          </p>
+          <p>
+            My vision is simple: put people first. Every event, every program, every decision will be made with our members at the center. Because a strong CURSOR isn't built on numbers — it's built on genuine connection, shared growth, and a culture where everyone has a reason to show up.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GSPOA -->
+  <section id="gspoa">
+    <div class="container">
+      <div class="sec-eyebrow reveal">platform</div>
+      <h2 class="reveal" style="transition-delay:0.05s">goals, strategies &amp; plans of action</h2>
+      <div class="divider reveal" style="transition-delay:0.1s"></div>
+      <p class="reveal gspoa-intro" style="transition-delay:0.15s">
+        Three words. One direction. <strong>PULL</strong> the community back together. <strong>PUSH</strong> every member to their full potential. <strong>COMMIT</strong> to a CURSOR that lasts.
+      </p>
+
+      <!-- TAB SWITCHER -->
+      <div class="tab-switcher reveal" style="transition-delay:0.2s">
+        <button class="tab-btn active" data-tab="pull">PULL</button>
+        <button class="tab-btn" data-tab="push">PUSH</button>
+        <button class="tab-btn" data-tab="commit">COMMIT</button>
+      </div>
+
+      <!-- PULL -->
+      <div class="tab-panel active" id="tab-pull">
+        <div class="tab-desc">We've lost members and connections. PULL is about bringing people back — renewing bonds, rebuilding numbers, and making every CS major feel like CURSOR is theirs again.</div>
+        <div class="push-list">
+
+          <div class="push-item">
+            <div class="push-letter">P</div>
+            <div class="push-body">
+              <h3>Pursue Growth in Numbers</h3>
+              <div class="push-goal">Goal: Reverse membership decline through active, intentional recruitment</div>
+              <div class="push-cols">
+                <div class="push-col">
+                  <div class="push-col-label">Strategy</div>
+                  <ul><li>Target incoming CS majors and lapsed members with personal, peer-to-peer outreach</li></ul>
+                </div>
+                <div class="push-col">
+                  <div class="push-col-label">Plans of Action</div>
+                  <ul>
+                    <li>Set up better orientation booths and CS department partnerships</li>
+                    <li>Launch a referral program rewarding members who recruit peers</li>
+                    <li>Offer a free first-event experience to lower the barrier to joining</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="push-item">
+            <div class="push-letter">U</div>
+            <div class="push-body">
+              <h3>Unite Disconnected Members</h3>
+              <div class="push-goal">Goal: Rebuild bonds between members who've grown distant or disengaged</div>
+              <div class="push-cols">
+                <div class="push-col">
+                  <div class="push-col-label">Strategy</div>
+                  <ul><li>Create shared cross-batch experiences that bridge year levels and backgrounds</li></ul>
+                </div>
+                <div class="push-col">
+                  <div class="push-col-label">Plans of Action</div>
+                  <ul>
+                    <li>Host cross-batch mixers and year-level collaboration events</li>
+                    <li>Launch a Big-Little(endian) mentorship pairing for new and returning members</li>
+                    <li>Build moderated group spaces for ongoing peer connection</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="push-item">
+            <div class="push-letter">L</div>
+            <div class="push-body">
+              <h3>Listen to the Membership</h3>
+              <div class="push-goal">Goal: Understand what members actually need — not what we assume they want</div>
+              <div class="push-cols">
+                <div class="push-col">
+                  <div class="push-col-label">Strategy</div>
+                  <ul><li>Build formal and informal feedback channels into every org touchpoint</li></ul>
+                </div>
+                <div class="push-col">
+                  <div class="push-col-label">Plans of Action</div>
+                  <ul>
+                    <li>Run semestral anonymous member surveys</li>
+                    <li>Hold open-forum town halls at the start and end of each term</li>
+                    <li>Create a permanent anonymous suggestion channel for ongoing input</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="push-item">
+            <div class="push-letter">L</div>
+            <div class="push-body">
+              <h3>Lure Back Lapsed Members & Alumni</h3>
+              <div class="push-goal">Goal: Re-engage members who stopped showing up — and rebuild alumni ties that have quietly faded</div>
+              <div class="push-cols">
+                <div class="push-col">
+                  <div class="push-col-label">Strategy</div>
+                  <ul><li>Reach out personally to both inactive members and alumni — make re-entry easy, welcoming, and genuinely worth it</li></ul>
+                </div>
+                <div class="push-col">
+                  <div class="push-col-label">Plans of Action</div>
+                  <ul>
+                    <li>Run a "Come Back to CURSOR" campaign each semester start for lapsed members</li>
+                    <li>Offer returning members a reduced renewal fee and a welcome-back event</li>
+                    <li>Build an alumni directory and reconnect through personal outreach</li>
+                    <li>Invite alumni to career talks, mentorship sessions, and org milestones</li>
+                    <li>Host an annual alumni homecoming to keep the bond alive</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PUSH -->
+      <div class="tab-panel" id="tab-push">
+        <div class="tab-desc">CURSOR is full of untapped talent and underutilized skills. PUSH is about unlocking that potential — giving every member a stage, a challenge, and a reason to grow.</div>
+        <div class="push-list">
+
+          <div class="push-item">
+            <div class="push-letter">P</div>
+            <div class="push-body">
+              <h3>Platform for Hidden Talent</h3>
+              <div class="push-goal">Goal: Give every member a visible space to showcase what they can do</div>
+              <div class="push-cols">
+                <div class="push-col">
+                  <div class="push-col-label">Strategy</div>
+                  <ul><li>Create low-barrier, high-visibility opportunities for members to share their work and skills</li></ul>
+                </div>
+                <div class="push-col">
+                  <div class="push-col-label">Plans of Action</div>
+                  <ul>
+                    <li>Host semestral internal demo days and project showcases</li>
+                    <li>Launch a member spotlight series on org social media</li>
+                    <li>Feature member projects in a public CURSOR portfolio page</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="push-item">
+            <div class="push-letter">U</div>
+            <div class="push-body">
+              <h3>Upskill Every Member</h3>
+              <div class="push-goal">Goal: Help members grow their CS skills beyond the classroom</div>
+              <div class="push-cols">
+                <div class="push-col">
+                  <div class="push-col-label">Strategy</div>
+                  <ul><li>Run peer-led and industry-connected learning programs in high-demand tech areas</li></ul>
+                </div>
+                <div class="push-col">
+                  <div class="push-col-label">Plans of Action</div>
+                  <ul>
+                    <li>Launch a workshop series covering web dev, AI/ML, and competitive programming</li>
+                    <li>Organize internal hackathons and coding challenges</li>
+                    <li>Form peer study groups by interest and skill level</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="push-item">
+            <div class="push-letter">S</div>
+            <div class="push-body">
+              <h3>Support Career Readiness</h3>
+              <div class="push-goal">Goal: Prepare members for internships, jobs, and real-world CS careers</div>
+              <div class="push-cols">
+                <div class="push-col">
+                  <div class="push-col-label">Strategy</div>
+                  <ul><li>Connect members with alumni, industry partners, and career development resources</li></ul>
+                </div>
+                <div class="push-col">
+                  <div class="push-col-label">Plans of Action</div>
+                  <ul>
+                    <li>Host resume reviews and mock technical interviews</li>
+                    <li>Build an alumni mentorship pipeline for career advice</li>
+                    <li>Partner with companies for tech talks, job referrals, and internship leads</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="push-item">
+            <div class="push-letter">H</div>
+            <div class="push-body">
+              <h3>Highlight Member Achievements</h3>
+              <div class="push-goal">Goal: Build a culture where wins — big and small — are celebrated publicly</div>
+              <div class="push-cols">
+                <div class="push-col">
+                  <div class="push-col-label">Strategy</div>
+                  <ul><li>Make recognition a consistent, visible part of CURSOR's identity and culture</li></ul>
+                </div>
+                <div class="push-col">
+                  <div class="push-col-label">Plans of Action</div>
+                  <ul>
+                    <li>Feature member wins, certifications, and projects on org platforms</li>
+                    <li>Host a semestral awards night recognizing member contributions</li>
+                    <li>Build a running leaderboard of org contributions and participation</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- COMMIT -->
+      <div class="tab-panel" id="tab-commit">
+        <div class="tab-desc">PULL and PUSH mean nothing without follow-through. COMMIT is the promise — consistent, transparent, inclusive leadership that holds itself accountable to every member, every term.</div>
+        <div class="push-list">
+
+          <div class="push-item">
+            <div class="push-letter">C</div>
+            <div class="push-body">
+              <h3>Consistent Programming</h3>
+              <div class="push-goal">Goal: Deliver reliable, high-quality events and programs every semester</div>
+              <div class="push-cols">
+                <div class="push-col">
+                  <div class="push-col-label">Strategy</div>
+                  <ul><li>Plan and lock in a full events calendar before each term begins</li></ul>
+                </div>
+                <div class="push-col">
+                  <div class="push-col-label">Plans of Action</div>
+                  <ul>
+                    <li>Publish a semestral events calendar in the first week of term</li>
+                    <li>Establish a dedicated events committee with clear ownership</li>
+                    <li>Run post-event evaluations to continuously improve quality</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="push-item">
+            <div class="push-letter">O</div>
+            <div class="push-body">
+              <h3>Open &amp; Transparent Leadership</h3>
+              <div class="push-goal">Goal: Ensure members always know what the org is doing and why</div>
+              <div class="push-cols">
+                <div class="push-col">
+                  <div class="push-col-label">Strategy</div>
+                  <ul><li>Proactively communicate org decisions, updates, and finances to the general membership</li></ul>
+                </div>
+                <div class="push-col">
+                  <div class="push-col-label">Plans of Action</div>
+                  <ul>
+                    <li>Publish monthly officer updates and meeting minutes</li>
+                    <li>Implement an open-door policy across all officer positions</li>
+                    <li>Share budget summaries and event outcomes with members</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="push-item">
+            <div class="push-letter">M</div>
+            <div class="push-body">
+              <h3>Member-Driven Decisions</h3>
+              <div class="push-goal">Goal: Make sure member voices actively shape what CURSOR does</div>
+              <div class="push-cols">
+                <div class="push-col">
+                  <div class="push-col-label">Strategy</div>
+                  <ul><li>Involve members in planning and priority-setting — not just as attendees but as decision-makers</li></ul>
+                </div>
+                <div class="push-col">
+                  <div class="push-col-label">Plans of Action</div>
+                  <ul>
+                    <li>Hold participatory planning sessions at the start of each term</li>
+                    <li>Put major org decisions to a member vote</li>
+                    <li>Form a member advisory council as a permanent feedback body</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="push-item">
+            <div class="push-letter">M</div>
+            <div class="push-body">
+              <h3>Meaningful Internal Culture</h3>
+              <div class="push-goal">Goal: Make CURSOR feel like a second home, not just an organization</div>
+              <div class="push-cols">
+                <div class="push-col">
+                  <div class="push-col-label">Strategy</div>
+                  <ul><li>Invest in the relationships between members — not just the activities on the calendar</li></ul>
+                </div>
+                <div class="push-col">
+                  <div class="push-col-label">Plans of Action</div>
+                  <ul>
+                    <li>Launch a member care program with regular check-ins</li>
+                    <li>Recognize birthdays, milestones, and personal wins publicly</li>
+                    <li>Build officer-to-member relationships beyond event logistics</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="push-item">
+            <div class="push-letter">I</div>
+            <div class="push-body">
+              <h3>Inclusive for Everyone</h3>
+              <div class="push-goal">Goal: Ensure every CS major feels welcome — regardless of year, background, or skill level</div>
+              <div class="push-cols">
+                <div class="push-col">
+                  <div class="push-col-label">Strategy</div>
+                  <ul><li>Actively design programs and spaces that reach underrepresented and often-overlooked members</li></ul>
+                </div>
+                <div class="push-col">
+                  <div class="push-col-label">Plans of Action</div>
+                  <ul>
+                    <li>Train officers in inclusive leadership and safe space practices</li>
+                    <li>Run a buddy system pairing new members with a welcoming point of contact</li>
+                    <li>Ensure events are accessible, affordable, and varied in format</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="push-item">
+            <div class="push-letter">T</div>
+            <div class="push-body">
+              <h3>Track &amp; Measure Our Progress</h3>
+              <div class="push-goal">Goal: Hold ourselves publicly accountable to every commitment we make</div>
+              <div class="push-cols">
+                <div class="push-col">
+                  <div class="push-col-label">Strategy</div>
+                  <ul><li>Set clear, measurable metrics at the start of term and report on them honestly at the end</li></ul>
+                </div>
+                <div class="push-col">
+                  <div class="push-col-label">Plans of Action</div>
+                  <ul>
+                    <li>Publish a semester-end report card on renewal rates, attendance, and satisfaction</li>
+                    <li>Set public goals each term and review them openly with members</li>
+                    <li>Use member satisfaction surveys to grade every major initiative</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="push-item">
+            <div class="push-letter">B</div>
+            <div class="push-body">
+              <h3>Build Bridges Across the Org</h3>
+              <div class="push-goal">Goal: Create a CURSOR where every member feels genuinely welcome — not just tolerated, but included</div>
+              <div class="honest-callout">
+                <span class="honest-label">⚠ honest acknowledgment</span>
+                We know this won't be easy. <strong>Low member participation</strong> makes it hard to get people in the same room, and <strong>a limited budget</strong> means we have to be creative with what we can offer. We're naming these upfront — and designing around them.
+              </div>
+              <div class="push-cols">
+                <div class="push-col">
+                  <div class="push-col-label">Strategy</div>
+                  <ul><li>Design events with built-in mixing — small groups, shared goals, and cross-batch collaboration that make new connections feel natural, not forced</li></ul>
+                </div>
+                <div class="push-col">
+                  <div class="push-col-label">Plans of Action</div>
+                  <ul>
+                    <li>Run small-group events (6–12 people) where everyone has to engage</li>
+                    <li>Assign cross-batch teams for org activities and collaborative projects</li>
+                    <li>Prioritize free or low-cost formats — game nights, study jams, potlucks — to work within budget</li>
+                    <li>Train officers to actively welcome and introduce unfamiliar members at every event</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SHARE BAR -->
+  <div class="share-bar">
+    <p>// share this platform</p>
+    <div class="share-btns">
+      <a class="share-btn" id="share-fb" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        Facebook
+      </a>
+      <a class="share-btn" id="share-x" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Post on X
+      </a>
+      <button class="share-btn" id="share-copy">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy Link
+      </button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-name"><span>Jesua</span> Alfaro</div>
+    <div class="footer-sub">CURSOR · 2026</div>
+    <div class="footer-cmd"><span>$ </span>consider jesua --org CURSOR --year 2026</div>
+    <div class="footer-copy">Deployed via GitHub Pages</div>
+  </footer>
+
+  <script>
+    // TYPEWRITER
+    const phrases = [
+      "let's PULL together.",
+      "let's PUSH CURSOR forward.",
+      "let's COMMIT to a better future.",
+    ];
+    const el = document.getElementById('typewriter');
+    let pi = 0, ci = 0, deleting = false;
+    function type() {
+      const phrase = phrases[pi];
+      if (!deleting) {
+        el.innerHTML = phrase.slice(0, ++ci) + '<span class="cursor-blink"></span>';
+        if (ci === phrase.length) { deleting = true; setTimeout(type, 1800); return; }
+      } else {
+        el.innerHTML = phrase.slice(0, --ci) + '<span class="cursor-blink"></span>';
+        if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+      }
+      setTimeout(type, deleting ? 40 : 70);
+    }
+    setTimeout(type, 900);
+
+    // SCROLL PROGRESS BAR
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+      bar.style.width = pct + '%';
+    });
+
+    // NAV SHADOW ON SCROLL
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 10);
+    });
+
+    // ACTIVE NAV LINK
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav ul a');
+    const observer2 = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLinks.forEach(a => a.classList.remove('active'));
+          const active = document.querySelector(`nav ul a[href="#${e.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { threshold: 0.4 });
+    sections.forEach(s => observer2.observe(s));
+
+    // SHARE BUTTONS
+    const pageUrl = encodeURIComponent(window.location.href);
+    const pageTitle = encodeURIComponent('Jesua Alfaro · CURSOR 2026 — PULL. PUSH. COMMIT.');
+    document.getElementById('share-fb').href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+    document.getElementById('share-x').href  = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+    document.getElementById('share-copy').addEventListener('click', () => {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const btn = document.getElementById('share-copy');
+        btn.classList.add('copied');
+        btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Copied!`;
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Link`;
+        }, 2000);
+      });
+    });
+
+    // TAB SWITCHER
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+      });
+    });
+
+    // SCROLL REVEAL
+    const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const ro = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(r => ro.observe(r));
+  </script>
+</body>
+</html>
